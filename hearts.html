@@ -71,7 +71,7 @@ f.onsubmit=async e=>{e.preventDefault();const text=t.value.trim();if(!text)retur
 const p=place(),id=Date.now().toString(36)+Math.random().toString(36).slice(2,6),it={id,text,name:nm.value.trim(),x:p.x,y:p.y};
 try{await api({a:'add',id,text:it.text,name:it.name,x:it.x,y:it.y});add(it);keep(id);
 msg.textContent='شكراً لك، تم إضافة قلبك 💚';t.value='';nm.value=''}catch(err){msg.textContent='تعذّر الإرسال، حاولي مرة ثانية'}b.disabled=false};
-const URL_='PASTE_URL_HERE';
+const URL_='https://script.google.com/macros/s/AKfycbwg1inUg6T7_mMdSmLOGI8k_QM63tdJqBXV5_caexQ86qmYPJHAFC1afsF9WXJadgR-/exec';
 const api=async b=>{if(!URL_.startsWith('http'))return;const r=await fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b)});if(!r.ok)throw 0};
 async function load(){if(!URL_.startsWith('http')){msg.textContent='ملاحظة: الرسائل هنا تظهر لك فقط حالياً.';return}
 try{const r=await (await fetch(URL_)).json(),ids=new Set(r.map(v=>String(v.id)));
